@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Dashboard{% endblock %}
+
+{% block extra_head %}
+    <style>
+        .grey-h {
+            color: rgb(37, 37, 37);
+            font-size: 1.2rem;
+        }
+
+        @keyframes redyellow {
+            0% { background-color: red; }
+            50% { background-color: yellow; }
+            100% { background-color: red; }
+        }
+
+        #buy-pickaxes {
+            width: 100%;
+            background-color: red;
+            color: rgb(53, 0, 53);
+            text-align: center;
+            margin-top: 0;
+            animation: redyellow 1s;
+            animation-iteration-count: infinite;
+        }
+
+        #bp-border {
+            border: 1px solid black;
+            background-color: rgb(189, 123, 0);
+        } #bp-border:hover {
+            transform: rotate(1deg);
+        }
+
+        .pickaxe {
+            color: rgb(0, 234, 255);
+            background-color: rgb(43, 0, 83);
+            margin: 1%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1 class="header">Welcome to The SALSA Mines!</h1>
+    <h2>Dashboard for {{ p.player_address }}</h2>
+    <span class="grey-h">Your Ravencoin Deposit Address: {{ p.address }}</span>
+    <hr>
+    <h4>Ravencoin Deposited: {{ p.rvn_sent }}</h4>
+    <h4>Your SALSA: {{ p.player_salsa }}</h4>
+    {% if p.pickaxes %}
+        <span class="grey-h">Your Pickaxes:</span>
+        <hr>
+        {% for pa in p.pickaxes %}
+            <b class="pickaxe">{{ pa }}</b>
+        {% endfor %}
+    {% else %}
+        <span class="grey-h">No Pickaxes ):</span>
+    {% endif %}
+    <br>
+    <a href="/how-to/#playing">You a rookie? Here's how to play</a>
+    <br><br>
+    <div id="bp-border">
+        <h1 id="buy-pickaxes">Buy Pickaxes</h1>
+        <p>
+            Partner! You've been SALSA mining hard!
+            Want to ramp up mining?
+            Buy pickaxes! 
+        </p>
+        <p>
+            For every pickaxe you have, you get your multiplier increased by one! For example, if
+            you have 2 pickaxes your SALSA mining intake will increase by 200%!
+        </p>
+        <p>
+            All you need to do is have 10 RVN in your deposit address (above,) then within a minute 
+            you will recieve your very own pickaxe!
+        </p>
+        <p>
+            A pickaxe is represented as a unique asset on the Ravencoin chain in the form of SALSA#PickaxeXXX.
+        </p>
+    </div>
+{% endblock %}

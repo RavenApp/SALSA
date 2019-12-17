@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Setup your Account{% endblock %}
+
+{% block extra_head %}
+    <style>
+        #f {
+            text-align: center;
+        }
+
+        #addr {
+            width: 50%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1 class="header">Setup your Salsa Account</h1>
+    <form method="POST" id="f">
+        <input name="address" id="addr" type="text" placeholder="Ravencoin Address">
+        {% csrf_token %}
+        <button type="submit">Next</button>
+    </form>
+{% endblock %}

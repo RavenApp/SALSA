@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Setup your Account{% endblock %}
+
+{% block extra_head %}
+
+{% endblock %}
+
+{% block content %}
+    <h1 class="header">Verify</h1>
+    <p>
+        We sent a SALSA token to {{ player.player_address }}. Send the SALSA token back to {{ player.address }} to 
+        verify. After, you can <a href="/dashboard/{{ player.pk }}/">view your dashboard</a>.
+    </p>
+{% endblock %}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block head_title %}{% endblock %} | Salsa</title>
+        <link rel="shortcut icon" href="//www.ravenvotes.com/static/favicon.ico">
+        <style>
+            html, body {
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                font-family: Noto Sans, sans-serif;
+                background-color: rgb(255, 0, 0);
+            }
+
+            #brand {
+                width: 100%;
+                text-align: center;
+                font-size: 3rem;
+                margin: 0;
+                margin-top: 0.3%;
+            } 
+
+            #content {
+                width: 850px;
+                max-width: 90%!important;
+                min-width: 55%;
+                border: 2px solid black;
+                margin: 0 auto;
+                padding: 1%;
+                border-radius: 5px;
+                min-height: 10%;
+                background-color: white;
+            }
+
+            .header {
+                font-size: 3rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            #tl {
+                text-decoration: none;
+                color: rgb(81, 255, 0);
+                transition: 10s;
+            } #tl:hover {
+                background-color: aqua;
+            }
+
+            .wowa {
+                color: black;
+                background-color: white;
+            } .wowa:hover {
+                color:rgb(81, 255, 0);
+            }
+
+            #lkz {
+                width: 100%;
+                text-align: center;
+                margin: 0;
+            }
+        </style>
+        {% block extra_head %}{% endblock %}
+    </head>
+    <body>
+        <h1 id="brand"><a href="/" id="tl">SALSA</a></h1>
+        <h2 id="lkz">
+            <a href="/dashboard/" class="wowa">DASHBOARD</a>
+            <a href="/setup/" class="wowa">SETUP ACCOUNT</a>
+            <a href="/how-to/" class="wowa">HOW TO</a>
+        </h2>
+        <br>
+        <div id="content">
+            {% block content %}{% endblock %}
+            <br>
+            <img src="https://media1.tenor.com/images/22099c70987ff3a6a9dfcb2de87b9570/tenor.gif" style="width:100%;">
+            <hr>
+            We are running <a href="https://www.ravenvotes.com/poll/SALSA/">a poll</a> on RavenVotes!
+            <br>
+            Vote with your SALSA tokens! Vote YES for the next feature to be a multiplayer casino, vote NO for the next
+            feature to be adding pickaxe functionality!
+        </div>
+        <br><br><br><br><br>
+    </body>
+</html>
